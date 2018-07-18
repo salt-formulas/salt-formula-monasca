@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import persister with context %}
 
+{%- if persister.enabled %}
+
 /etc/monasca/persister:
   file.directory:
   - user: mon-persister
@@ -19,3 +21,5 @@ monasca_persister_config:
   - template: jinja
   - require:
     - file: /etc/monasca/persister
+
+{%- endif %}

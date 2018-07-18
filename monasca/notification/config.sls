@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import notification with context %}
 
+{%- if notification.enabled %}
+
 /etc/monasca/notification:
   file.directory:
   - user: mon-notification
@@ -19,3 +21,5 @@ monasca_notification_config:
   - template: jinja
   - require:
     - file: /etc/monasca/notification
+
+{%- endif %}

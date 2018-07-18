@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import common,notification with context %}
 
+{%- if notification.enabled %}
+
 include:
 - monasca.common
 
@@ -58,3 +60,5 @@ monasca_notification_upstart:
   - user: root
   - group: root
   - mode: 644
+
+{%- endif %}

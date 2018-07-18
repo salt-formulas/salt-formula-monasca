@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import common,thresh with context %}
 
+{%- if thresh.enabled %}
+
 include:
 - monasca.common
 
@@ -38,3 +40,5 @@ monasca_thresh_systemv:
   - user: root
   - group: root
   - mode: 755
+
+{%- endif %}

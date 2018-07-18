@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import thresh with context %}
 
+{%- if thresh.enabled %}
+
 /etc/monasca/thresh:
   file.directory:
   - user: mon-thresh
@@ -19,3 +21,5 @@ monasca_thresh_config:
   - template: jinja
   - require:
     - file: /etc/monasca/thresh
+
+{%- endif %}

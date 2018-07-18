@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import api with context %}
 
+{%- if api.enabled %}
+
 include:
 - monasca.common
 
@@ -38,3 +40,5 @@ monasca_api_upstart:
   - user: root
   - group: root
   - mode: 644
+
+{%- endif %}

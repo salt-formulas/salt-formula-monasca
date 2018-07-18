@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import persister with context %}
 
+{%- if persister.enabled %}
+
 include:
 - monasca.common
 
@@ -38,3 +40,5 @@ monasca_persister_upstart:
   - user: root
   - group: root
   - mode: 644
+
+{%- endif %}

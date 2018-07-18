@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import persister with context %}
 
+{%- if persister.enabled %}
+
 include:
 - monasca.persister.config
 
@@ -10,3 +12,5 @@ monasca_persister_service:
   - watch:
     - file: monasca_persister_config
     - file: monasca_persister_upstart
+
+{%- endif %}

@@ -1,5 +1,7 @@
 {%- from "monasca/map.jinja" import notification with context %}
 
+{%- if notification.enabled %}
+
 include:
 - monasca.notification.config
 
@@ -10,3 +12,5 @@ monasca_notification_service:
   - watch:
     - file: monasca_notification_config
     - file: monasca_notification_upstart
+
+{%- endif %}
